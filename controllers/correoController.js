@@ -6,10 +6,10 @@ const envioCorreo = (req=request,resp=response) => {
 
   let config = nodemailer.createTransport({
     host:'smtp.gmail.com',
-    post:587,
+    post:535,
     auth:{
-      user:'tapiieroangii@gmail.com',
-      pass:'3128350015'
+      User:'tapiieroangii@gmail.com',
+      Pass:'3128350015'
     }
   });
 
