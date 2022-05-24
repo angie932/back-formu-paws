@@ -1,15 +1,15 @@
 const { request, response} = require('express');
-const nodemailer = require('nodemailer');
+const nodeMailer = require('nodemailer');
 
-const envioCorreo = (req=request,resp=response) => {
+const enviocorreos = (req=request,resp=response) => {
   let body =  req.body;
 
-  let config = nodemailer.createTransport({
+  let config = nodeMailer.createTransport({
     host:'smtp.gmail.com',
-    post:535,
+    post:587,
     auth:{
-      User:'tapiieroangii@gmail.com',
-      Pass:'3128350015'
+      user:'giraldoangie891@gmail.com',
+      pass:'3128350015'
     }
   });
 
@@ -21,17 +21,19 @@ const envioCorreo = (req=request,resp=response) => {
   };
 
   config.sendMail(opciones, function(error, result){
-
-  if (error) return resp.json({ok:false, msg:error})
-
-    return resp.json({
-    ok: true,
-    msg: result
-  });
+    if (error) { 
+      return resp.json({ok: false, msg:error});
+    }
+    else{
+      return resp.json({
+        ok:true,
+        msg:result
+      });
+    }
   })
 }
 
 
 module.exports = {
-  envioCorreo
+  enviocorreos
 }

@@ -1,8 +1,8 @@
 const express = require('express');
 const app = express();
 
-let envio = require('../controllers/correoController');
+const envio = require('../controllers/correoController');
 
-app.post('/envio', envio.envioCorreo);
+app.post('/envio', envio.enviocorreos);
 
-module.exports = app;
+module.exports = app; 
